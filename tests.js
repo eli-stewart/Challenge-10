@@ -1,6 +1,16 @@
-QUnit.test("Test the addTwoArrays function.", function (assert) {
-    var a1 = [1, 2, 3];
-    var a2 = [3, 2, 1];
-    var result = addTwoArrays(a1, a2);
-    assert.deepEqual(result, [4, 4, 4], "We expect result to be 4, 4, 4");
+QUnit.test("Test the displayCurrentInput function.", function (assert) {
+    var currentInput = 3245234
+
+    var result = displayCurrentInput(currentInput);
+    assert.equal(document.getElementById('screen').value, " 3245234");
+
+    var currentInput = 546
+
+    var result = displayCurrentInput(currentInput);
+    assert.equal(document.getElementById('screen').value, " 546");
+
+    var currentInput = -.90009980943750987
+
+    var result = displayCurrentInput(currentInput);
+    assert.equal(document.getElementById('screen').value, " -.90009980943750987");
 });
