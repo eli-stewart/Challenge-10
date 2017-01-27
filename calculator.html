@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Calcuator Starter App</title>
+    <script src='calculator.js'></script>
+    <link rel='stylesheet' href='calculator.css'>
+    <!-- Bootstrap -->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css' integrity='sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi' crossorigin='anonymous'>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js' integrity='sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK' crossorigin='anonymous'></script>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='row'>
+            <div class='offset-md-2 col-md-8'>
+                <h1>Calculator App</h1> </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-8'>
+                <input type='text' class='form-control' readonly id='screen'> </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='allClear()'>AC</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='changeSign()'>+/-</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick=''>%</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('/')">/</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('7')">7</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('8')">8</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('9')">9</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('*')">x</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('4')">4</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('5')">5</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('6')">6</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('-')">-</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('1')">1</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('2')">2</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('3')">3</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('+')">+</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('0')">0</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addDecimal()">.</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="calculate()">=</button>
+            </div>
+        </div>
+</body>
+
+</html>
