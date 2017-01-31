@@ -16,6 +16,7 @@ QUnit.test("Test the calculate() function.", function (assert) {
     assert.deepEqual(document.getElementById('screen').value, "0", "We expect the result to be 0.");
     allClear();
     memory = ['1', '+', '2', '*', '3'];
+    calculate();
     assert.deepEqual(document.getElementById('screen').value, "7", "We expect the result to be 7.");
 });
 QUnit.test("Test the percentage function", function (assert) {
