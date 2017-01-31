@@ -9,3 +9,12 @@ QUnit.test("Test the displayCurrentInput function.", function (assert) {
     displayCurrentInput();
     assert.equal(document.getElementById('screen').value, "-.90009980943750987", "We expect the result to be -.90009980943750987.");
 });
+QUnit.test("Test the percentage function")
+    , function (assert) {
+        currentInput = 23
+        percentage();
+        assert.equal(document.getElementById('screen').value, ".23", "We expect the value to be .23")
+        currentInput = 450
+        percentage();
+        assert.equal(document.getElementById('screen').value, "4.5", "We expect the value to be 4.5")
+    }
