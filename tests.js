@@ -1,16 +1,16 @@
 QUnit.test("Test the displayCurrentInput function.", function (assert) {
-    var currentInput = 3245234
+    currentInput = 3245234
 
-    var result = displayCurrentInput(currentInput);
-    assert.equal(document.getElementById('screen').value, " 3245234");
+    displayCurrentInput();
+    assert.equal(document.getElementById('screen').value, "3245234", "We expect the value to be 3245234.");
 
-    var currentInput = 546
+    currentInput = -53245342523453453453453453543453425345345345346546746
 
-    var result = displayCurrentInput(currentInput);
-    assert.equal(document.getElementById('screen').value, " 546");
+    displayCurrentInput();
+    assert.equal(document.getElementById('screen').value, "-53245342523453453453453453543453425345345345346546746", "We expect the result to be 53245342523453453453453453543453425345345345346546746 in exponential form");
 
-    var currentInput = -.90009980943750987
+    currentInput = -.90009980943750987
 
-    var result = displayCurrentInput(currentInput);
-    assert.equal(document.getElementById('screen').value, " -.90009980943750987");
+    displayCurrentInput();
+    assert.equal(document.getElementById('screen').value, "-.90009980943750987", "We expect the result to be -.90009980943750987.");
 });
