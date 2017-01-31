@@ -2,12 +2,14 @@
 <html lang='en'>
 
 <head>
-    <title>Calcuator Starter App</title>
+    <title>Calcuator</title>
     <script src='calculator.js'></script>
     <link rel='stylesheet' href='calculator.css'>
     <!-- Bootstrap -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css' integrity='sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi' crossorigin='anonymous'>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js' integrity='sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK' crossorigin='anonymous'></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,20 +20,76 @@
         </div>
         <div class='row'>
             <div class='offset-md-2 col-md-8'>
-                <input type='text' class='form-control' readonly id='screen'> </div>
+                <input id='screen' type='text' class='form-control' readonly> </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='addToUserMemory()'>M+</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='subtractFromUserMemory()'>M-</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='readUserMemory()'>MR</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='clearUserMemory()'>MC</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='inverse()'>1/x</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='square()'>x&#178</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='squareRoot()'>&#8730</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('^')">^</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button id='angle-mode-button' class='btn btn-block btn-default' type='button' onclick='toggleAngleMode()'>Rad</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='sin()'>Sin</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='cos()'>Cos</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='tan()'>Tan</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='factorial()'>x!</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='changeSign()'>+/-</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='percentage()'>%</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick='pi()'>&#x3c0</button>
+            </div>
         </div>
         <div class='row'>
             <div class='offset-md-2 col-md-2'>
                 <button class='btn btn-block btn-default' type='button' onclick='allClear()'>AC</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick='changeSign()'>+/-</button>
+                <button class='btn btn-block btn-default' type='button' onclick='clearCurrent()'>C</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick=''>%</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('(')">(</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('/')">/</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator(')')">)</button>
             </div>
         </div>
         <div class='row'>
@@ -45,7 +103,7 @@
                 <button class='btn btn-block btn-default' type='button' onclick="addDigit('9')">9</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('*')">x</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('*')">*</button>
             </div>
         </div>
         <div class='row'>
@@ -59,21 +117,21 @@
                 <button class='btn btn-block btn-default' type='button' onclick="addDigit('6')">6</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('-')">-</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('/')">/</button>
             </div>
         </div>
         <div class='row'>
             <div class='offset-md-2 col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="addDigit('1')">1</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('3')">3</button>
             </div>
             <div class='col-md-2'>
                 <button class='btn btn-block btn-default' type='button' onclick="addDigit('2')">2</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="addDigit('3')">3</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addDigit('1')">1</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="storeOperator('+')">+</button>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('+')">+</button>
             </div>
         </div>
         <div class='row'>
@@ -81,10 +139,18 @@
                 <button class='btn btn-block btn-default' type='button' onclick="addDigit('0')">0</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="addDecimal()">.</button>
+                <button class='btn btn-block btn-default' type='button' onclick='addDecimal()'>.</button>
             </div>
             <div class='col-md-2'>
-                <button class='btn btn-block btn-default' type='button' onclick="calculate()">=</button>
+                <button class='btn btn-block btn-default' type='button' onclick='calculate()'>=</button>
+            </div>
+            <div class='col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('-')">-</button>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='offset-md-2 col-md-2'>
+                <button class='btn btn-block btn-default' type='button' onclick="addOperator('EE')">EE</button>
             </div>
         </div>
 </body>
