@@ -61,3 +61,11 @@ QUnit.test("Test the squareRoot function", function (assert) {
     squareRoot();
     assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
 });
+QUnit.test("Test the inverse function", function (assert) {
+    currentInput = 64;
+    inverse();
+    assert.equal(document.getElementById('screen').value, '1/64', 'We expect the value 8')
+ currentInput = -100897908790874;
+    squareRoot();
+    assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
+});
