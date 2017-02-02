@@ -19,9 +19,9 @@ QUnit.test("Test the calculate() function.", function (assert) {
     assert.deepEqual(document.getElementById("screen").value, "1", "We expect the result to be 1.");
 });
 QUnit.test("Test the evaluate() function.", function (assert) {
-    assert.deepEqual(evaluate(["1", "+", "2", "-", "3"]), [0], "We expect the result to be 0.");
-    assert.deepEqual(evaluate(["1", "+", "2", "*", "3"]), [7], "We expect the result to be 7.");
-    assert.deepEqual(evaluate(["5", "/", "2", "-", "1"]), [1.5], "We expect the result to be 1.5.");
+    assert.deepEqual(evaluate(["1", "+", "2", "-", "3"]), [0], "We expect the result to be [0].");
+    assert.deepEqual(evaluate(["1", "+", "2", "*", "3"]), [7], "We expect the result to be [7].");
+    assert.deepEqual(evaluate(["5", "/", "2", "-", "1"]), [1.5], "We expect the result to be [1.5].");
 });
 QUnit.test("Test the percentage function", function (assert) {
     currentInput = 23
@@ -30,4 +30,9 @@ QUnit.test("Test the percentage function", function (assert) {
     currentInput = 450
     percentage();
     assert.equal(document.getElementById("screen").value, "4.5", "We expect the value to be 4.5")
+});
+QUnit.test("Test the getDeepestParenthesesPair() function.", function(assert) {
+    assert.deepEqual(getDeepestParenthesesPair("()()"), [0, 1], "We expect the result to be [0, 1].");
+    assert.deepEqual(getDeepestParenthesesPair("(()(()))"), [4, 5], "We expect the result to be [4, 5].");
+    assert.deepEqual(getDeepestParenthesesPair("There be no parentheses."), -1, "We expect the result to be -1.");
 });
