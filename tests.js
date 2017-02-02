@@ -5,9 +5,9 @@ QUnit.test("Test the displayCurrentInput() function.", function (assert) {
     currentInput = -53245342
     displayCurrentInput();
     assert.equal(document.getElementById('screen').value, "-53245342", "We expect the result to be -53245342");
-    currentInput = -.9000998094375
+    currentInput = -0.9000998094375
     displayCurrentInput();
-    assert.equal(document.getElementById('screen').value, "-.9000998094375", "We expect the result to be -.9000998094375.");
+    assert.equal(document.getElementById('screen').value, "-0.9000998094375", "We expect the result to be -0.9000998094375.");
 });
 QUnit.test("Test the calculate() function.", function (assert) {
     allClear();
