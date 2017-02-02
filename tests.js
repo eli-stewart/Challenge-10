@@ -24,10 +24,19 @@ QUnit.test("Test the evaluate() function.", function (assert) {
     assert.deepEqual(evaluate(["5", "/", "2", "-", "1"]), [1.5], "We expect the result to be 1.5.");
 });
 QUnit.test("Test the percentage function", function (assert) {
-    currentInput = 23
+    currentInput = 23;
     percentage();
-    assert.equal(document.getElementById("screen").value, "0.23", "We expect the value to be 0.23")
-    currentInput = 450
+    assert.equal(document.getElementById('screen').value, "0.23", "We expect the value to be 0.23");
+    currentInput = 450;
     percentage();
-    assert.equal(document.getElementById("screen").value, "4.5", "We expect the value to be 4.5")
+    assert.equal(document.getElementById('screen').value, "4.5", "We expect the value to be 4.5");
+
 });
+QUnit.test("Test the factorial function", function (assert) {
+    currentInput = 6;
+    factorial();
+    assert.equal(document.getElementById('screen').value, '6.12344584* 10^103', 'We expect the value 720');
+    currentInput = 72;
+    factorial();
+    assert.equal(document.getElementById('screen').value, '720', 'We expect the value 720');
+    });
