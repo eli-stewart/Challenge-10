@@ -46,10 +46,10 @@ QUnit.test("Test the factorial function", function (assert) {
     assert.equal(document.getElementById('screen').value, '720', 'We expect the value 720');
 });
 QUnit.test("Test the square function", function (assert) {
-    currentInput = 64;
+    currentInput = 8;
     square();
-    assert.equal(document.getElementById('screen').value, '8', 'We expect the value 8')
- currentInput = -64;
+    assert.equal(document.getElementById('screen').value, '64', 'We expect the value 8')
+ currentInput = -8;
     square();
-    assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
+    assert.equal(document.getElementById('screen').value, '64', 'We expect the value NaN');
 });
