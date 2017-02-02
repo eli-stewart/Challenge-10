@@ -24,15 +24,24 @@ QUnit.test("Test the evaluate() function.", function (assert) {
     assert.deepEqual(evaluate(["5", "/", "2", "-", "1"]), [1.5], "We expect the result to be [1.5].");
 });
 QUnit.test("Test the percentage function", function (assert) {
-    currentInput = 23
+    currentInput = 23;
     percentage();
-    assert.equal(document.getElementById("screen").value, "0.23", "We expect the value to be 0.23")
-    currentInput = 450
+    assert.equal(document.getElementById('screen').value, "0.23", "We expect the value to be 0.23");
+    currentInput = 450;
     percentage();
-    assert.equal(document.getElementById("screen").value, "4.5", "We expect the value to be 4.5")
+    assert.equal(document.getElementById('screen').value, "4.5", "We expect the value to be 4.5");
+
 });
 QUnit.test("Test the getDeepestParenthesesPair() function.", function(assert) {
     assert.deepEqual(getDeepestParenthesesPair("()()"), [0, 1], "We expect the result to be [0, 1].");
     assert.deepEqual(getDeepestParenthesesPair("(()(()))"), [4, 5], "We expect the result to be [4, 5].");
     assert.deepEqual(getDeepestParenthesesPair("There be no parentheses."), -1, "We expect the result to be -1.");
+});
+QUnit.test("Test the factorial function", function (assert) {
+    currentInput = 72;
+    factorial();
+    assert.equal(document.getElementById('screen').value, '6.123445837688612e+103', 'We expect the value 6.123445837688612e+103');
+    currentInput = 6;
+    factorial();
+    assert.equal(document.getElementById('screen').value, '720', 'We expect the value 720');
 });
