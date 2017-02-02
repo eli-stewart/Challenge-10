@@ -67,5 +67,5 @@ QUnit.test("Test the inverse function", function (assert) {
     assert.equal(document.getElementById('screen').value, '0.015625', 'We expect the value 8')
  currentInput = -100897908790874;
     inverse();
-    assert.equal(document.getElementById('screen').value, '321423', 'We expect the value NaN');
+    assert.equal(document.getElementById('screen').value, '-9.911008186231585e-15', 'We expect the value -9.911008186231585e-15');
 });
