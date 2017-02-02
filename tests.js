@@ -48,3 +48,27 @@ QUnit.test("Test the factorial function", function (assert) {
 QUnit.test("Test the replaceOperator() function", function (assert) {
     assert.deepEqual(replaceOperator(["1", "+", "2"], 1, 3), [3], "We expect the value [3].");
 });
+QUnit.test("Test the square function", function (assert) {
+    currentInput = 8;
+    square();
+    assert.equal(document.getElementById('screen').value, '64', 'We expect the value 8')
+ currentInput = -8;
+    square();
+    assert.equal(document.getElementById('screen').value, '64', 'We expect the value NaN');
+});
+QUnit.test("Test the squareRoot function", function (assert) {
+    currentInput = 64;
+    squareRoot();
+    assert.equal(document.getElementById('screen').value, '8', 'We expect the value 8')
+ currentInput = -64;
+    squareRoot();
+    assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
+});
+QUnit.test("Test the inverse function", function (assert) {
+    currentInput = 64;
+    inverse();
+    assert.equal(document.getElementById('screen').value, '0.015625', 'We expect the value 8')
+ currentInput = -100897908790874;
+    inverse();
+    assert.equal(document.getElementById('screen').value, '-9.911008186231585e-15', 'We expect the value -9.911008186231585e-15');
+});
