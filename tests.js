@@ -52,5 +52,4 @@ QUnit.test("Test the square function", function (assert) {
  currentInput = -64;
     square();
     assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
-}
 });
