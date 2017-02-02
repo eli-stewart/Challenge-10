@@ -35,7 +35,7 @@ QUnit.test("Test the percentage function", function (assert) {
 QUnit.test("Test the factorial function", function (assert) {
     currentInput = 72;
     factorial();
-    assert.equal(document.getElementById('screen').value, '6.12344584* 10^103', 'We expect the value 6.12344584* 10^103');
+    assert.equal(document.getElementById('screen').value, '6.123445837688612e+103', 'We expect the value 6.123445837688612e+103');
     currentInput = 6;
     factorial();
     assert.equal(document.getElementById('screen').value, '720', 'We expect the value 720');
