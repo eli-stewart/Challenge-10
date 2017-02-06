@@ -131,3 +131,97 @@ QUnit.test("Test the changeSign() function.", function (assert) {
     changeSign();
     assert.equal(currentInput, "1", "We expect the value to be 1.");
 });
+QUnit.test("Test the readUserMemory function", function (assert) {
+    userMemory = 64;
+    readUserMemory();
+    assert.equal(document.getElementById('screen').value, '64', 'We expect the value 64');
+ userMemory = -100897908790874;
+    readUserMemory();
+    assert.equal(document.getElementById('screen').value, '-100897908790874', 'We expect the value -100897908790874');
+
+});
+QUnit.test("Test the addToUserMemory function", function (assert) {
+    currentInput = 64;
+	userMemory = 1;
+    addToUserMemory();
+    assert.equal(userMemory, '65', 'We expect the value 64');
+	currentInput = 55;
+	userMemory = -55;
+    addToUserMemory();
+    assert.equal(userMemory, '0', 'We expect the value 0');
+
+});
+QUnit.test("Test the subtractFromUserMemory function", function (assert) {
+    currentInput = 64;
+	userMemory = 1;
+    subtractFromUserMemory();
+    assert.equal(userMemory, '-63', 'We expect the value -63');
+	currentInput = 55;
+	userMemory = -55;
+    subtractFromUserMemory();
+    assert.equal(userMemory, '-110', 'We expect the value -110');
+
+});
+QUnit.test("Test the clearUserMemory function", function (assert) {
+	userMemory = 1;
+    clearUserMemory();
+    assert.equal(userMemory, '0', 'We expect the value 0');
+	userMemory = -55;
+    clearUserMemory();
+    assert.equal(userMemory, '0', 'We expect the value 0');
+
+});
+QUnit.test("Test the toggleAngleMode function", function (assert) {
+    angleMode = 2;
+    toggleAngleMode();
+    assert.equal(angleMode, '1', 'We expect the value 1');
+ angleMode = 1;
+    toggleAngleMode();
+    assert.equal(angleMode, '2', 'We expect the value 2');
+});
+QUnit.test("Test the pi function", function (assert) {
+	currentInput = 0;
+	pi();
+	assert.equal(document.getElementById('screen').value, '3.141592653589793', 'We expect the value 3.141592653589793');
+
+});
+
+QUnit.test("Test the sin function", function (assert) {
+    angleMode = 2
+	currentInput = 30;
+    sin();
+    assert.equal(document.getElementById('screen').value, '0.5', 'We expect the value .5');
+	angleMode = 1
+	currentInput = (Math.PI/6);
+    sin();
+    assert.equal(document.getElementById('screen').value, '0.5', 'We expect the value .5');
+});
+QUnit.test("Test the cos function", function (assert) {
+    angleMode = 2
+	currentInput = 60;
+    cos();
+    assert.equal(document.getElementById('screen').value, '0.5', 'We expect the value .5');
+	angleMode = 1
+	currentInput = (Math.PI/3);
+    cos();
+    assert.equal(document.getElementById('screen').value, '0.5', 'We expect the value .5');
+});
+QUnit.test("Test the tan function", function (assert) {
+    angleMode = 2
+	currentInput = 0;
+    tan();
+    assert.equal(document.getElementById('screen').value, '0', 'We expect the value 0');
+	angleMode = 1
+	currentInput = 0;
+    tan();
+    assert.equal(document.getElementById('screen').value, '0', 'We expect the value 0');
+});
+
+QUnit.test("Test the rnd function", function (assert) {
+	currentInput = .9999999999999999999999;
+    rnd();
+    assert.equal(currentInput, '1', 'We expect the value 1');
+	currentInput = 1.499999999999999999999999999999999999;
+    rnd();
+    assert.equal(currentInput, '1.5', 'We expect the value 1.5');
+});
