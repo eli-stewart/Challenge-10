@@ -302,7 +302,7 @@ function sin() {
     else {
         currentInput = Math.sin(currentInput);
     }
-    currentInput = rnd(currentInput);
+ currentInput = rnd(currentInput);
     displayCurrentInput();
 }
 /**
@@ -332,12 +332,12 @@ function tan() {
     displayCurrentInput();
 }
 /**
- * Checks if the difference between currentInput and the closest integer is less than 0.000000000000001
+ * Checks if the difference between currentInput and the closest integer is less than 0.00000000001
  * If it is, it rounds the currentInput to that integer
  */
 function rnd() {
-    if ((Math.abs(Math.round(currentInput) - currentInput)) < 0.000000000000001) {
-        return Math.round(currentInput);
+    if ((Math.abs(((Math.round(2*currentInput))/2) - currentInput)) < 0.00000000001) {
+        return (Math.round(2*currentInput)/2);
     }
     else {
         return currentInput;
