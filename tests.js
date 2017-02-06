@@ -51,24 +51,83 @@ QUnit.test("Test the replaceOperator() function", function (assert) {
 QUnit.test("Test the square function", function (assert) {
     currentInput = 8;
     square();
-    assert.equal(document.getElementById('screen').value, '64', 'We expect the value 8')
+    assert.equal(document.getElementById("screen").value, "64", "We expect the value 8")
  currentInput = -8;
     square();
-    assert.equal(document.getElementById('screen').value, '64', 'We expect the value NaN');
+    assert.equal(document.getElementById("screen").value, "64", "We expect the value NaN");
 });
 QUnit.test("Test the squareRoot function", function (assert) {
     currentInput = 64;
     squareRoot();
-    assert.equal(document.getElementById('screen').value, '8', 'We expect the value 8')
+    assert.equal(document.getElementById("screen").value, "8", "We expect the value 8")
  currentInput = -64;
     squareRoot();
-    assert.equal(document.getElementById('screen').value, 'NaN', 'We expect the value NaN');
+    assert.equal(document.getElementById("screen").value, "NaN", "We expect the value NaN");
 });
 QUnit.test("Test the inverse function", function (assert) {
     currentInput = 64;
     inverse();
-    assert.equal(document.getElementById('screen').value, '0.015625', 'We expect the value 8')
+    assert.equal(document.getElementById("screen").value, "0.015625", "We expect the value 8")
  currentInput = -100897908790874;
     inverse();
-    assert.equal(document.getElementById('screen').value, '-9.911008186231585e-15', 'We expect the value -9.911008186231585e-15');
+    assert.equal(document.getElementById("screen").value, "-9.911008186231585e-15", "We expect the value -9.911008186231585e-15");
+});
+QUnit.test("Test the addDigit() function.", function (assert) {
+    allClear();
+    addDigit("1");
+    addDigit("2");
+    addDigit("3");
+    assert.equal(currentInput, "123", "We expect the value to be 123.");
+});
+QUnit.test("Test the addDecimal() function.", function (assert) {
+    allClear();
+    addDigit("1");
+    addDecimal();
+    addDigit("2");
+    addDigit("3");
+    addDecimal();
+    assert.equal(currentInput, "1.23", "We expect the value to be 1.23.");
+
+    allClear();
+    addDecimal();
+    addDigit("1");
+    addDigit("2");
+    addDecimal();
+    assert.equal(currentInput, "0.12", "We expect the value to be 0.12.");
+});
+QUnit.test("Test the addOperator() function.", function (assert) {
+    allClear();
+    addDigit("1");
+    addOperator("+");
+    addDigit("2")
+    addOperator("/")
+    assert.deepEqual(memory, ["1", "+", "2", "/"], "We expect the value to be [1, +, 2, /].");
+
+    allClear();
+    addOperator("-");
+    addDigit("2")
+    addOperator("*")
+    assert.deepEqual(memory, ["-", "2", "*"], "We expect the value to be [-, 2, *].");
+});
+QUnit.test("Test the allClear() function.", function (assert) {
+    addDigit("1");
+    addOperator("+");
+    addDigit("2");
+    addOperator("-");
+    allClear();
+    assert.equal(currentInput, "", "We expect the value to be ' '.");
+    assert.deepEqual(memory, [], "We expect the value to be [].")
+});
+QUnit.test("Test the clearCurrent() function.", function (assert) {
+    addDigit("1");
+    addDigit("2");
+    clearCurrent();
+    assert.equal(currentInput, "", "We expect the value to be ' '.");
+});
+QUnit.test("Test the changeSign() function.", function (assert) {
+    addDigit("1");
+    changeSign();
+    assert.equal(currentInput, "-1", "We expect the value to be -1.");
+    changeSign();
+    assert.equal(currentInput, "1", "We expect the value to be 1.");
 });
